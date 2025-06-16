@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ff8fa3;
+            --dark: #2b2d42;
+            --light: #fff0f3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+            animation: glow 2s infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Timeline */
+         /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+            margin: 3rem auto; /* Centers the whole timeline block */
+            max-width: 1000px; /* Limits the overall width for better layout */
+            overflow: hidden; /* Important: Contains floats so next elements don't get tangled */
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transform: translateX(-50%);
+            border-radius: 10px;
+            z-index: 0; /* Keep it behind the items */
+        }
+
+        .timeline-item {
+            display: flex; /* Use flexbox for internal alignment within the item */
+            position: relative;
+            margin-bottom: 3rem; /* Space between items */
+            width: 50%; /* Each item takes half the timeline's width */
+            box-sizing: border-box; /* Include padding in width calculation */
+            align-items: center; /* Vertically align content if needed */
+        }
+
+        /* Styles for odd (left) items */
+        .timeline-item:nth-child(odd) {
+            float: left; /* Float to the left */
+            clear: both; /* Clear floats to ensure proper stacking of items */
+            padding-right: 40px; /* Space between card and center line */
+            text-align: right; /* Align internal content to the right */
+        }
+
+        /* Styles for even (right) items */
+        .timeline-item:nth-child(even) {
+            float: right; /* Float to the right */
+            clear: both; /* Clear floats to ensure proper stacking of items */
+            padding-left: 40px; /* Space between card and center line */
+            text-align: left; /* Align internal content to the left */
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            width: 100%; /* Make content take full width of its 50% item container */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left; /* Ensure text inside the card is left-aligned */
+        }
+
+        .timeline-photo {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 77, 109, 0.3);
+        }
+
+        .timeline-date {
+            position: absolute;
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            top: 50%;
+            left: 50%; /* Position relative to the main timeline line */
+            transform: translate(-50%, -50%); /* Center perfectly on the line */
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.5);
+            z-index: 2; /* Ensure date is above content and line */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline {
+                max-width: 100%; /* Full width for mobile */
+                margin-left: 0; /* Reset margin on mobile */
+                margin-right: 0; /* Reset margin on mobile */
+            }
+            .timeline::before {
+                left: 30px; /* Keep line on the left for mobile */
+                transform: translateX(0); /* No horizontal transform for mobile */
+            }
+
+            .timeline-item {
+                width: 100%; /* Full width for items */
+                float: none; /* Remove floats */
+                clear: none; /* Remove clear */
+                padding-left: 70px; /* Space for the line and dot */
+                padding-right: 20px; /* Maintain some right padding */
+                text-align: left; /* All text aligns left */
+            }
+
+            .timeline-item:nth-child(even) {
+                float: none; /* Ensure no float remains */
+                clear: none;
+                padding-left: 70px; /* Consistent padding for all items */
+                text-align: left; /* All text aligns left */
+            }
+
+            .timeline-content {
+                width: 100%; /* Content takes full width of its padded container */
+            }
+
+            .timeline-date {
+                left: 5px !important; /* Move date dot to the left of the line */
+                right: auto !important;
+                transform: translateY(-50%); /* Only vertical transform for mobile */
+            }
+        }
+
+        /* Photo Gallery 3D */
+  .gallery-container {
+    perspective: 1000px;
+    margin: 3rem 0 8rem 0; /* Aumentei a margem inferior para 8rem */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+    .gallery-title {
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+        position: relative;
+        z-index: 3;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+         transform: translateY(10px); /* Empurra mais 10px para baixo */
+    }
+
+    .photo-carousel {
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: rotate 30s infinite linear;
+    z-index: 2; /* Mantém abaixo da mensagem secreta */
+    margin-top: 4rem;
+}
+
+        .photo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(255, 77, 109, 0.5);
+            transition: all 0.5s;
+            opacity: 0.9;
+            border: 3px solid white;
+        }
+
+        .photo:hover {
+            opacity: 1;
+            box-shadow: 0 0 40px var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Secret Message */
+       .secret-box {
+    text-align: center;
+    margin: 4rem 0 4rem 0; /* Reduzi a margem superior para 4rem */
+    position: relative;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 3; /* Garante que fique acima do carrossel */
+}
+        .secret-btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.4);
+            font-weight: bold;
+        }
+
+        .secret-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 77, 109, 0.6);
+        }
+
+        .secret-message {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            display: none;
+            animation: fadeIn 1s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes rotate {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 77, 109, 0.3); }
+            to { text-shadow: 0 0 20px rgba(255, 77, 109, 0.6); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item, .timeline-item:nth-child(even) {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+
+            .timeline-date {
+                left: 5px !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Nossa História</h1>
+            <p class="subtitle">Cada momento ao seu lado é um capítulo especial no livro da minha vida</p>
+            <p>(aumente o volume e clique na primeira foto)</p>
+            
+        </header>
+
+        <div class="timeline">
+            <!-- Ítem 1 - Esquerda -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Parque">
+                    <h3>SEU TITULO</h3>
+                    <p>sua legenda para foto.</p>
+                </div>
+                
+            </div>
+
+            <!-- Ítem 2 - Direita -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Cerveja">
+                    <h3>SEU TITULO</h3>
+                    <p>sua legenda para foto...</p>
+                </div>
+                
+            </div>
+
+            <!-- Ítem 3 - Esquerda -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Anel">
+                    <h3>SEU TITULO</h3>
+                    <p>sua legenda para foto.</p>
+                </div>
+               
+            </div>
+
+            <!-- Ítem 4 - Direita -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Dia dos Namorados">
+                    <h3>SEU TITULO</h3>
+                    <p>sua legenda para foto.</p>
+                </div>
+              
+            </div>
+
+            <!-- Ítem 5 - Esquerda -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Nós três">
+                    <h3>SEU TITULO</h3>
+                    <p>sua legenda para foto.</p>
+                </div>
+                
+            </div>
+
+            <!-- Ítem 6 - Direita -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Ano Novo">
+                    <h3>SEU TITULO</h3>
+                    <p>sua legenda para foto.</p>
+                </div>
+                
+            </div>
+
+            <!-- Ítem 7 - Esquerda -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Aniversário">
+                    <h3>SEU TITULO</h3>
+                    <p>sua legenda para foto.</p>
+                </div>
+               
+            </div>
+
+             <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Ano Novo">
+                    <h3>SEU TITULO</h3>
+                    <p>sua legenda para foto...</p>
+                </div>
+                
+            </div>
+
+              <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Aniversário">
+                    <h3>SEU TITULO</h3>
+                    <p>sua legenda para foto.</p>
+                </div>
+            
+            </div>
+
+            
+             <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Ano Novo">
+                <h3>SEU TITULO</h3>
+                    <p> sua legenda para foto.</p>
+                </div>
+                </div>
+                  <div class="timeline-item">
+                <div class="timeline-content">
+                    <img src="assets/images/suaFOTO.jpg" class="timeline-photo" alt="Aniversário">
+                    <h3> SEU TITULO...</h3>
+                    <p>sua legenda para foto...</p>
+                </div>
+            
+            </div>
+                
+            </div>
+
+        </div>
+
+        <div class="gallery-container">
+            <div class="photo-carousel">
+                <img src="assets/images/foto1.jpg" class="photo" style="transform: rotateY(0deg) translateZ(300px);">
+                <img src="assets/images/foto2.jpg" class="photo" style="transform: rotateY(60deg) translateZ(300px);">
+                <img src="assets/images/foto3.jpg" class="photo" style="transform: rotateY(120deg) translateZ(300px);">
+                <img src="assets/images/foto4.jpg" class="photo" style="transform: rotateY(180deg) translateZ(300px);">
+                <img src="assets/images/foto5.jpg" class="photo" style="transform: rotateY(240deg) translateZ(300px);">
+                <img src="assets/images/foto6.jpg" class="photo" style="transform: rotateY(300deg) translateZ(300px);">
+            </div>
+        </div>
+
+           <div class="secret-box"  <!-- Adicionei margem extra aqui -->
+        <button class="secret-btn" id="secretBtn">Clique para uma mensagem secreta</button>
+        <div class="secret-message" id="secretMessage">
+            <h3>Meu amor:</h3>
+            <p> SEU TEXTO </p>
+            <div class="heart" style="font-size: 3rem; margin-top: 1rem;">❤️</div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Feliz Dia dos Namorados!</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#ff4d6d" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: true, distance: 150, color: "#ff8fa3", opacity: 0.4, width: 1 },
+                    move: { enable: true, speed: 3, direction: "none", random: true, straight: false, out_mode: "out" }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" }
+                    }
+                }
+            });
+
+            const secretBtn = document.getElementById('secretBtn');
+            const secretMessage = document.getElementById('secretMessage');
+            
+            secretBtn.addEventListener('click', function() {
+                secretMessage.style.display = secretMessage.style.display === 'block' ? 'none' : 'block';
+                if (secretMessage.style.display === 'block') {
+                    for (let i = 0; i < 10; i++) createHeart();
+                }
+            });
+
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '-50px';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                heart.style.zIndex = '1000';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+
+            const style = document.createElement('style');
+            style.innerHTML = `@keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }`;
+            document.head.appendChild(style);
+        });
+    </script>
+    
+    <audio id="bgMusic" loop>
+    <source src="assets/music/SuaMUSICA.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+    document.addEventListener('click', function() {
+        const music = document.getElementById('bgMusic');
+        music.volume = 0.3; // Volume baixo
+        music.play();
+        
+        const player = document.createElement('div');
+        player.innerHTML = '🔊';
+        player.style.position = 'fixed';
+        player.style.bottom = '20px';
+        player.style.right = '20px';
+        player.style.zIndex = '1000';
+        player.style.cursor = 'pointer';
+        player.onclick = () => music.paused ? music.play() : music.pause();
+        document.body.appendChild(player);
+    }, { once: true });
+</script>
+</body>
+</html>
