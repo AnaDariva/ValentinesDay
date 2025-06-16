@@ -17,7 +17,7 @@ Um site romântico criado com HTML, CSS e JavaScript.
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="40" height="40"/>
 </div>
 
-## ✨ Recursos Incríveis
+## ✨ Recursos
 
 - 🕰️ **Linha do tempo interativa** com nossos momentos mais especiais
 - 🎠 **Carrossel 3D de fotos** que gira automaticamente
