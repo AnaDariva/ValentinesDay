@@ -64,11 +64,11 @@ nossa-historia/
 
 ## 💡 Dicas 
 
-| Dica                  | Como Fazer                          | Ferramenta Útil                  |
-|-----------------------|-------------------------------------|----------------------------------|
-| Nomes de arquivos     | Use `praia.jpg` em vez de `IMG_001.jpg` | -                               |
-| Otimizar imagens      | Reduza tamanho sem perder qualidade | [TinyPNG](https://tinypng.com/) |
-| Testar em navegadores | Chrome, Firefox, Edge, Safari       | [BrowserStack](https://www.browserstack.com/) |
+| Dica                  | Como Fazer                             | Ferramenta Útil                               |
+|-----------------------|----------------------------------------|-----------------------------------------------|
+| Nomes de arquivos     | Use `praia.jpg` em vez de `IMG_001.jpg`| -                                             |
+| Otimizar imagens      | Reduza tamanho sem perder qualidade    | [TinyPNG](https://tinypng.com/)               |
+| Testar em navegadores | Chrome, Firefox, Edge, Safari          | [BrowserStack](https://www.browserstack.com/) |
 
 ## ❤️ Créditos
 
