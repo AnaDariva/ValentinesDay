@@ -2,6 +2,21 @@
 
 Um site romântico criado com HTML, CSS e JavaScript.
 
+## 🖥️ Tecnologias Utilizadas
+
+### 👩‍💻 Linguagens  
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="40" height="40"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/>
+</div>
+
+### ⚙️ Ferramentas  
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode" width="40" height="40"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="40" height="40"/>
+</div>
+
 ## ✨ Recursos Incríveis
 
 - 🕰️ **Linha do tempo interativa** com nossos momentos mais especiais
@@ -41,14 +56,13 @@ nossa-historia/
   ```
   Envie o ZIP por WhatsApp/Telegram/Email
 
-- **💾 Pendrive romântico**  
-  Grave em um pendrive decorado com nossos adesivos favoritos
+- **💾 Pendrive**  
+  Grave em um pendrive.
 
 - **☁️ Hospedagem gratuita**:
   - [GitHub Pages](https://pages.github.com/) (ideal para programadores)
-  - [Netlify Drop](https://app.netlify.com/drop) (arraste e solte a pasta)
 
-## 💡 Dicas Profissionais
+## 💡 Dicas 
 
 | Dica                  | Como Fazer                          | Ferramenta Útil                  |
 |-----------------------|-------------------------------------|----------------------------------|
