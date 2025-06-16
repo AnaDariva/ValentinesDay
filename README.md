@@ -1,7 +1,4 @@
 # ValentinesDay
-# 💖 Nossa História - Um Presente Digital de Amor
-
-![Preview](assets/images/preview.jpg) *<!-- You can add a preview image later -->*
 
 Um site romântico criado com HTML, CSS e JavaScript.
 
@@ -65,8 +62,3 @@ nossa-historia/
 Feito por Ana Luisa Dariva 
 Para: Amanda Georg ❤️
 Data: Junho 2025 
-
-Tecnologias usadas:  
-HTML5 · CSS3 · JavaScript · Amor 💻
-```
-
